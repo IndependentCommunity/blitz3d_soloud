@@ -322,7 +322,11 @@ const int MIN_SIZE=256;
 qstreambuf::qstreambuf(){
 	buf=d_new char[MIN_SIZE];
 	setg( buf,buf,buf );
+#ifdef __GNUC__
+	setp( buf,buf+MIN_SIZE );
+#elif _MSC_VER
 	setp( buf,buf,buf+MIN_SIZE );
+#endif
 }
 
 qstreambuf::~qstreambuf(){
@@ -356,7 +360,11 @@ qstreambuf::int_type qstreambuf::overflow( qstreambuf::int_type c ){
 		memcpy( n_buf,gptr(),sz );
 		delete buf;buf=n_buf;
 		setg( buf,buf,buf+sz );
+#ifdef __GNUC__
+		setp( buf+sz,buf+n_sz );
+#elif _MSC_VER
 		setp( buf+sz,buf+sz,buf+n_sz );
+#endif
 	}
 
 	*pptr()=traits_type::to_char_type( c );
