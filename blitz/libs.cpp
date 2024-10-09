@@ -19,6 +19,8 @@ vector<UserFunc> userFuncs;
 
 static HMODULE linkerHMOD,runtimeHMOD;
 
+#define typeof gettype
+
 static Type *typeof( int c ){
 	switch( c ){
 	case '%':return Type::int_type;
@@ -125,6 +127,8 @@ static const char *linkRuntime(){
 	}
 	return 0;
 }
+
+#undef typeof
 
 static set<string> _ulibkws;
 
