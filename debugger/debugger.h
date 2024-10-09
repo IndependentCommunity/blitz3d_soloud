@@ -14,6 +14,8 @@ public:
 	virtual void debugSys( void *msg )=0;
 };
 
+#ifdef _MSC_VER
 extern "C" _declspec(dllexport) Debugger * _cdecl debuggerGetDebugger( void *mod,void *env );
+#endif
 
 #endif

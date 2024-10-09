@@ -30,6 +30,8 @@ public:
 	virtual void deleteModule( Module *mod );
 };
 
+#ifdef _MSC_VER
 extern "C" _declspec(dllexport) Linker * _cdecl linkerGetLinker();
+#endif
 
 #endif
