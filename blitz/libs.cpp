@@ -1,6 +1,6 @@
 
 #include "libs.h"
-
+//#include "..\linker\linker.cpp"
 #include <windows.h>
 
 int bcc_ver;
@@ -19,7 +19,7 @@ vector<UserFunc> userFuncs;
 
 static HMODULE linkerHMOD,runtimeHMOD;
 
-static Type *typeof( int c ){
+static Type *gettype( char c ){
 	switch( c ){
 	case '%':return Type::int_type;
 	case '#':return Type::float_type;
@@ -60,7 +60,7 @@ static int next( istream &in ){
 
 static const char *linkRuntime(){
 
-	while( const char *sym=runtimeLib->nextSym() ){
+	while( const char *sym=runtimeLib->nextSym() ){     // read nextSym while nextSym != nullptr
 
 		string s( sym );
 
@@ -68,6 +68,7 @@ static const char *linkRuntime(){
 
 		//internal?
 		if( s[0]=='_' ){
+            //cout<<"_"<<s<<" "<<pc<<endl;
 			runtimeModule->addSymbol( ("_"+s).c_str(),pc );
 			continue;
 		}
@@ -84,7 +85,7 @@ static const char *linkRuntime(){
 		//global!
 		int start=0,end,k;
 		Type *t=Type::void_type;
-		if( !isalpha( s[0] ) ){ start=1;t=typeof( s[0] ); }
+		if( !isalpha( s[0] ) ){ start=1;t=gettype( s[0] ); }
 		for( k=1;k<s.size();++k ){
 			if( !isalnum( s[k] ) && s[k]!='_' ) break;
 		}
@@ -92,7 +93,7 @@ static const char *linkRuntime(){
 		DeclSeq *params=d_new DeclSeq();
 		string n=s.substr( start,end-start );
 		while( k<s.size() ){
-			Type *t=typeof(s[k++]);
+			Type *t=gettype(s[k++]);
 			int from=k;
 			for( ;isalnum(s[k])||s[k]=='_';++k ){}
 			string str=s.substr( from,k-from );
@@ -121,8 +122,10 @@ static const char *linkRuntime(){
 		FuncType *f=d_new FuncType( t,params,false,cfunc );
 		n=tolower(n);
 		runtimeEnviron->funcDecls->insertDecl( n,f,DECL_FUNC );
+		//cout<<"_f"<<n<<" "<<pc<<endl;
 		runtimeModule->addSymbol( ("_f"+n).c_str(),pc );
 	}
+
 	return 0;
 }
 
@@ -247,21 +250,25 @@ static const char *linkUserLibs(){
 }
 
 const char *openLibs(){
-	
+
 	char *p=getenv( "blitzpath" );
 	if( !p ) return "Can't find blitzpath environment variable";
 	home=string(p);
 
-	linkerHMOD=LoadLibrary( (home+"/bin/linker.dll").c_str() );
+#ifdef __GNUC__
+    linkerLib=new Linker();
+#elif _MSC_VER
+	linkerHMOD=LoadLibrary( (home+"\\bin\\linker.dll").c_str() );
 	if( !linkerHMOD ) return "Unable to open linker.dll";
 
 	typedef Linker *(_cdecl*GetLinker)();
 	GetLinker gl=(GetLinker)GetProcAddress( linkerHMOD,"linkerGetLinker" );
 	if( !gl ) return "Error in linker.dll";
 	linkerLib=gl();
+#endif
 
-	runtimeHMOD=LoadLibrary( (home+"/bin/runtime.dll").c_str() );
-	if( !runtimeHMOD ) return "Unable to open runtime.dll";
+	runtimeHMOD=LoadLibrary( (home+"\\bin\\runtime.dll").c_str() );
+	if( !runtimeHMOD ) {cout<<(home+"\\bin\\runtime.dll").c_str()<<endl;return "Unable to open runtime.dll";}
 
 	typedef Runtime *(_cdecl*GetRuntime)();
 	GetRuntime gr=(GetRuntime)GetProcAddress( runtimeHMOD,"runtimeGetRuntime" );
@@ -285,7 +292,7 @@ const char *openLibs(){
 
 const char *linkLibs(){
 
-	if( const char *p=linkRuntime() ) return p;
+	if( const char *p=linkRuntime() ) {  cout<<"p="<<p<<endl; return p;}
 
 	if( const char *p=linkUserLibs() ) return p;
 

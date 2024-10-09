@@ -2,6 +2,8 @@
 #ifndef LINKER_H
 #define LINKER_H
 
+//extern "C" {
+
 class Module{
 public:
 	virtual ~Module(){}
@@ -30,6 +32,8 @@ public:
 	virtual void deleteModule( Module *mod );
 };
 
-extern "C" _declspec(dllexport) Linker * _cdecl linkerGetLinker();
+//}
+
+//extern "C" __declspec(dllexport) Linker * _cdecl linkerGetLinker(); //extern "C" _declspec(dllexport) Linker * _cdecl linkerGetLinker();
 
 #endif

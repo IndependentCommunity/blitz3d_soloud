@@ -30,7 +30,8 @@ using namespace std;
 
 static void showInfo(){
 	const int major=(VERSION&0xffff)/1000,minor=(VERSION&0xffff)%1000;
-	cout<<"BlitzCC V"<<major<<"."<<minor<<endl;
+	string compiler=COMPILER;
+	cout<<"BlitzCC V"<<major<<"."<<minor<<" "<<compiler<<" build."<<endl;
 	cout<<"(C)opyright 2000-2003 Blitz Research Ltd"<<endl;
 }
 
@@ -204,7 +205,7 @@ int _cdecl main( int argc,char *argv[] ){
 	}
 
 	ifstream in( in_file.c_str() );
-	if( !in ) err( "Unable to open input file" );
+	if( !in ) {cout<<"Unable to open input file: "<<in_file.c_str()<<endl; err( "Unable to open input file" );}
 	if( !quiet ){
 		showInfo();
 		cout<<"Compiling \""<<in_file<<"\""<<endl;
@@ -237,9 +238,7 @@ int _cdecl main( int argc,char *argv[] ){
 		qstreambuf qbuf;
 		iostream asmcode( &qbuf );
 		Codegen_x86 codegen( asmcode,debug );
-
 		prog->translate( &codegen,userFuncs );
-
 		if( dumpasm ){
 			cout<<endl<<string( qbuf.data(),qbuf.size() )<<endl;
 		}
@@ -251,7 +250,7 @@ int _cdecl main( int argc,char *argv[] ){
 		assem.assemble();
 
 	}catch( Ex &x ){
-
+        // Если в блоке try catch произошел Exception выводим его в cout
 		string file='\"'+x.file+'\"';
 		int row=((x.pos>>16)&65535)+1,col=(x.pos&65535)+1;
 		cout<<file<<":"<<row<<":"<<col<<":"<<row<<":"<<col<<":"<<x.ex<<endl;

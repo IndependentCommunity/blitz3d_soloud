@@ -12,4 +12,12 @@
 #define VERSION (0x20000 | BASE_VERSION)
 #endif
 
+#define COMPILER "Unknown compiler";
+
+#ifdef __GNUC__
+    #define COMPILER "GNUGCC";
+#elif _MSC_VER
+    #define COMPILER "MSVC";
+#endif
+
 #endif

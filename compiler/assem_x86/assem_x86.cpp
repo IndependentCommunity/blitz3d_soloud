@@ -19,7 +19,7 @@ typedef InstMap::const_iterator InstIter;
 
 static InstMap instMap;
 
-//#define LOG
+#define LOG
 
 Assem_x86::Assem_x86( istream &in,Module *mod ):Assem(in,mod){
 
@@ -59,7 +59,7 @@ void Assem_x86::align( int n ){
 
 void Assem_x86::emit( int n ){
 #ifdef LOG
-	clog<<hex<<(int(n)&0xff)<<dec<<' ';
+	clog<<hex<<setw(2)<<setfill('0')<<uppercase<<(int(n)&0xff)<<dec<<' ';
 #endif
 	mod->emit( n );
 }
@@ -116,11 +116,13 @@ void Assem_x86::assemInst( const string &name,const string &lhs,const string &rh
 	if( name[0]=='j' ){
 		if( (cc=findCC(name.substr(1)))>=0 ){
 			static Inst jCC={ "jCC",IMM,NONE,RW_RD|PLUSCC,"\x2\x0F\x80" };
+            //static Inst jCC={ "jCC",IMM,NONE,RW_RD|PLUSCC,"\x0F\x80" };
 			inst=&jCC;
 		}
 	}else if( name[0]=='s' && name.substr( 0,3 )=="set" ){
 		if( (cc=findCC(name.substr(3)))>=0 ){
 			static Inst setCC={ "setne",R_M8,NONE,_2|PLUSCC,"\x2\x0F\x90" };
+            //static Inst setCC={ "setne",R_M8,NONE,_2|PLUSCC,"\x0F\x90" };
 			inst=&setCC;
 		}
 	}
@@ -141,9 +143,11 @@ void Assem_x86::assemInst( const string &name,const string &lhs,const string &rh
 	if( inst->flags & (O16|O32) ){}
 
 	int k,n=inst->bytes[0];
-	for( k=1;k<n;++k ) emit( inst->bytes[k] );
-	if( inst->flags&PLUSREG ) emit( inst->bytes[k]+lop.reg );
-	else if( inst->flags&PLUSCC ) emit( inst->bytes[k]+cc );
+	//int k,n=strlen(inst->bytes)-1;
+    for( k=1;k<n;++k ) emit( inst->bytes[k] );
+    //for( k=0;k<n;++k ) emit( inst->bytes[k] );
+	if( inst->flags&PLUSREG ) emit( inst->bytes[k]+lop.reg );   // add reg to op code for dec,inc,xchg,push,pop etc...
+	else if( inst->flags&PLUSCC ) emit( inst->bytes[k]+cc );    //
 	else emit( inst->bytes[k] );
 
 	if( inst->flags&(_0|_1|_2|_3|_4|_5|_6|_7|_R ) ){
@@ -293,10 +297,14 @@ void Assem_x86::assemble(){
 	while( !in.eof() ){
 		try{
 			getline( in,line );
-			line+='\n';
 #ifdef LOG
-			clog<<line;
+            clog<<line;
+            if(line[0]!='_'){
+                int n=30-(line.size()-line.find_last_of('\t')-1);
+                clog<<(n<1?" ":string(n,' '))<<"; ";
+            }
 #endif
+			line+='\n';
 			assemLine( line );
 #ifdef LOG
 			clog<<endl;

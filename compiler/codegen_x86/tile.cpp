@@ -213,6 +213,11 @@ void Codegen_x86::leave( TNode *cleanup,int pop_sz ){
 	out<<"\tpush\tedi\n";
 	out<<"\tpush\tebp\n";
 	out<<"\tmov\tebp,esp\n";
+		out<<"\tfinit\n";
+        out<<"\tfclex\n";
+        out<<"\tfdisi\n";
+        out<<"\tfeni\n";
+        out<<"\tfstsw\tax\n";
 	if( maxFrameSize ) out<<"\tsub\tesp,"<<maxFrameSize<<'\n';
 
 	int esp_off=0;

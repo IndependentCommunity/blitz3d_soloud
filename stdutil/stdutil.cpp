@@ -5,6 +5,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <streambuf>
 
 using namespace std;
 
@@ -152,8 +153,8 @@ string itoa( int n ){
 static int _finite( double n ){		// definition: exponent anything but 2047.
 
 	int e;					// 11 bit exponent
-	const int eMax = 2047;	// 0x7ff, all bits = 1	
-	
+	const int eMax = 2047;	// 0x7ff, all bits = 1
+
 	int *pn = (int *) &n;
 
 	e = *++pn;				// Intel order!
@@ -165,8 +166,8 @@ static int _finite( double n ){		// definition: exponent anything but 2047.
 static int _isnan( double n ){		// definition: exponent 2047, nonzero fraction.
 
 	int e;					// 11 bit exponent
-	const int eMax = 2047;	// 0x7ff, all bits = 1	
-	
+	const int eMax = 2047;	// 0x7ff, all bits = 1
+
 	int *pn = (int *) &n;
 
 	e = *++pn;				// Intel order!
@@ -200,7 +201,7 @@ string ftoa( float n ){
 
 //		if ( digits < 1 ) digits = 1;	// less than one digit is nonsense
 //		if ( digits > 8 ) digits = 8;	// practical maximum for float
-		
+
 		t = _ecvt( n, digits, &dec, &sign );
 
 		if ( dec <= eNeg + 1 || dec > ePos ){
@@ -209,10 +210,10 @@ string ftoa( float n ){
 			t = buffer;
 			return t;
 		}
-		
+
 		// Here is the tricky case. We want a nicely formatted
 		// number with no e-notation or multiple trailing zeroes.
-	
+
 		if ( dec <= 0 ){
 
 			t = "0." + string( -dec, '0' ) + t;
@@ -230,10 +231,10 @@ string ftoa( float n ){
 			dec += dec - digits;
 
 		}
-	
+
 		// Finally, trim off excess zeroes.
 
-		int dp1 = dec + 1, p = t.length();	
+		int dp1 = dec + 1, p = t.length();
 		while( --p > dp1 && t[p] == '0' );
 		t = string( t, 0, ++p );
 
@@ -322,7 +323,11 @@ const int MIN_SIZE=256;
 qstreambuf::qstreambuf(){
 	buf=d_new char[MIN_SIZE];
 	setg( buf,buf,buf );
+#ifdef __GNUC__
+	setp( buf,buf+MIN_SIZE );
+#elif _MSC_VER
 	setp( buf,buf,buf+MIN_SIZE );
+#endif
 }
 
 qstreambuf::~qstreambuf(){
@@ -356,7 +361,11 @@ qstreambuf::int_type qstreambuf::overflow( qstreambuf::int_type c ){
 		memcpy( n_buf,gptr(),sz );
 		delete buf;buf=n_buf;
 		setg( buf,buf,buf+sz );
-		setp( buf+sz,buf+sz,buf+n_sz );
+#ifdef __GNUC__
+		setp( buf+sz,buf+n_sz );
+#elif _MSC_VER
+        setp( buf+sz,buf+sz,buf+n_sz );
+#endif
 	}
 
 	*pptr()=traits_type::to_char_type( c );
