@@ -256,6 +256,9 @@ const char *openLibs(){
 	if( !p ) return "Can't find blitzpath environment variable";
 	home=string(p);
 
+#ifdef __GNUC__
+	linkerLib=new Linker();
+#elif _MSC_VER
 	linkerHMOD=LoadLibrary( (home+"/bin/linker.dll").c_str() );
 	if( !linkerHMOD ) return "Unable to open linker.dll";
 
@@ -263,6 +266,7 @@ const char *openLibs(){
 	GetLinker gl=(GetLinker)GetProcAddress( linkerHMOD,"linkerGetLinker" );
 	if( !gl ) return "Error in linker.dll";
 	linkerLib=gl();
+#endif
 
 	runtimeHMOD=LoadLibrary( (home+"/bin/runtime.dll").c_str() );
 	if( !runtimeHMOD ) return "Unable to open runtime.dll";
