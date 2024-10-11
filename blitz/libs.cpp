@@ -19,6 +19,8 @@ vector<UserFunc> userFuncs;
 
 static HMODULE linkerHMOD,runtimeHMOD;
 
+#define typeof gettype
+
 static Type *typeof( int c ){
 	switch( c ){
 	case '%':return Type::int_type;
@@ -125,6 +127,8 @@ static const char *linkRuntime(){
 	}
 	return 0;
 }
+
+#undef typeof
 
 static set<string> _ulibkws;
 
@@ -252,6 +256,9 @@ const char *openLibs(){
 	if( !p ) return "Can't find blitzpath environment variable";
 	home=string(p);
 
+#ifdef __GNUC__
+	linkerLib=new Linker();
+#elif _MSC_VER
 	linkerHMOD=LoadLibrary( (home+"/bin/linker.dll").c_str() );
 	if( !linkerHMOD ) return "Unable to open linker.dll";
 
@@ -259,6 +266,7 @@ const char *openLibs(){
 	GetLinker gl=(GetLinker)GetProcAddress( linkerHMOD,"linkerGetLinker" );
 	if( !gl ) return "Error in linker.dll";
 	linkerLib=gl();
+#endif
 
 	runtimeHMOD=LoadLibrary( (home+"/bin/runtime.dll").c_str() );
 	if( !runtimeHMOD ) return "Unable to open runtime.dll";
