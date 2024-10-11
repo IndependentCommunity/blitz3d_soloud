@@ -16,6 +16,7 @@
 
 #ifdef __GNUC__
     #define COMPILER "GNUGCC";
+    #define _declspec __declspec
 #elif _MSC_VER
     #define COMPILER "MSVC";
 #endif
