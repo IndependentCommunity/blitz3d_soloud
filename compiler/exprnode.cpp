@@ -238,10 +238,21 @@ int FloatConstNode::intValue(){
 	float flt=value;
 	int temp;
 	_control87( _RC_NEAR|_PC_24|_EM_INVALID|_EM_ZERODIVIDE|_EM_OVERFLOW|_EM_UNDERFLOW|_EM_INEXACT|_EM_DENORMAL,0xfffff );
+    //temp=(int)flt;
+#ifdef __GNUC__
+	__asm__ (
+		"flds %1;"
+		"fistpl %0;"
+		: "=m" (temp)   // input operands
+		: "m" (flt)     // output operands
+		: "st"          // used registers
+	);
+#elif _MSC_VER
 	_asm{
 		fld [flt];
 		fistp [temp];
 	}
+#endif
 	_control87( _CW_DEFAULT,0xfffff );
 	return temp;
 }
