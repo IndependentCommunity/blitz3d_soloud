@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="blitzcc" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option platforms="Windows;" />
+				<Option output="../BLITZ3D_INSTALL/bin/blitzcc" prefix_auto="1" extension_auto="1" />
+				<Option object_output="temp/obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters="-a ../BLITZ3D_INSTALL/samples/mak/driver/driver.bb" />
+				<Compiler>
+					<Add option="-Os" />
+					<Add option="-w" />
+					<Add option="-std=c11" />
+					<Add option="-m32" />
+					<Add option="-mwin32" />
+				</Compiler>
+				<Linker>
+					<Add option="-m32" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option platforms="Windows;" />
+				<Option output="../BLITZ3D_INSTALL/bin/blitzcc" prefix_auto="1" extension_auto="1" />
+				<Option object_output="temp/obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Option parameters=" -a ../BLITZ3D_INSTALL/samples/mak/castle/castle.bb" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-mabi=ms -mwin32" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add option="-Wl,--subsystem,windows" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-flto" />
+			<Add option="-Os" />
+			<Add option="-w" />
+			<Add option="-std=c17" />
+			<Add option="-m32" />
+			<Add option="-Og" />
+			<Add option="-finline-small-functions" />
+		</Compiler>
+		<Linker>
+			<Add option="-flto" />
+			<Add option="-s" />
+			<Add option="-static" />
+			<Add option="-m32" />
+		</Linker>
+		<Unit filename="../bbruntime_dll/bbruntime_dll.h" />
+		<Unit filename="../blitz/libs.cpp" />
+		<Unit filename="../blitz/libs.h" />
+		<Unit filename="../blitz/main.cpp" />
+		<Unit filename="../compiler/assem.h" />
+		<Unit filename="../compiler/assem_x86/asm_insts.cpp" />
+		<Unit filename="../compiler/assem_x86/assem_x86.cpp" />
+		<Unit filename="../compiler/assem_x86/assem_x86.h" />
+		<Unit filename="../compiler/assem_x86/insts.h" />
+		<Unit filename="../compiler/assem_x86/operand.cpp" />
+		<Unit filename="../compiler/assem_x86/operand.h" />
+		<Unit filename="../compiler/codegen.h" />
+		<Unit filename="../compiler/codegen_x86/codegen_x86.cpp" />
+		<Unit filename="../compiler/codegen_x86/codegen_x86.h" />
+		<Unit filename="../compiler/codegen_x86/tile.cpp" />
+		<Unit filename="../compiler/codegen_x86/tile.h" />
+		<Unit filename="../compiler/decl.cpp" />
+		<Unit filename="../compiler/decl.h" />
+		<Unit filename="../compiler/declnode.cpp" />
+		<Unit filename="../compiler/declnode.h" />
+		<Unit filename="../compiler/environ.cpp" />
+		<Unit filename="../compiler/environ.h" />
+		<Unit filename="../compiler/ex.h" />
+		<Unit filename="../compiler/exprnode.cpp" />
+		<Unit filename="../compiler/exprnode.h" />
+		<Unit filename="../compiler/label.h" />
+		<Unit filename="../compiler/node.cpp" />
+		<Unit filename="../compiler/node.h" />
+		<Unit filename="../compiler/nodes.h" />
+		<Unit filename="../compiler/parser.cpp" />
+		<Unit filename="../compiler/parser.h" />
+		<Unit filename="../compiler/prognode.cpp" />
+		<Unit filename="../compiler/prognode.h" />
+		<Unit filename="../compiler/std.cpp" />
+		<Unit filename="../compiler/std.h" />
+		<Unit filename="../compiler/stmtnode.cpp" />
+		<Unit filename="../compiler/stmtnode.h" />
+		<Unit filename="../compiler/stringmap.h" />
+		<Unit filename="../compiler/toker.cpp" />
+		<Unit filename="../compiler/toker.h" />
+		<Unit filename="../compiler/type.cpp" />
+		<Unit filename="../compiler/type.h" />
+		<Unit filename="../compiler/var.h" />
+		<Unit filename="../compiler/varnode.cpp" />
+		<Unit filename="../compiler/varnode.h" />
+		<Unit filename="../config/config.cpp" />
+		<Unit filename="../config/config.h" />
+		<Unit filename="../debugger/debugger.h" />
+		<Unit filename="../linker/image_util.cpp" />
+		<Unit filename="../linker/image_util.h" />
+		<Unit filename="../linker/linker.cpp" />
+		<Unit filename="../linker/linker.h" />
+		<Unit filename="../linker/std.cpp" />
+		<Unit filename="../linker/std.h" />
+		<Unit filename="../stdutil/stdutil.cpp" />
+		<Unit filename="../stdutil/stdutil.h" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
