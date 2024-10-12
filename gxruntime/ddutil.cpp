@@ -364,11 +364,11 @@ IDirectDrawSurface7 *loadDXTC(const char* filename,gxGraphics *gfx)
 	int blockSize = 0;
 	int chunkSize = 0;
 
-	if(ddsd.ddpfPixelFormat.dwFourCC == FOURCC_DXT1)
+	if(ddsd.ddpfPixelFormat.dwFourCC == 0x31545844)     // FOURCC_DXT1 - Equivalent to "DXT1" in ASCII
 		blockSize = 8; // DXT1
-	if(ddsd.ddpfPixelFormat.dwFourCC == FOURCC_DXT3)
+	if(ddsd.ddpfPixelFormat.dwFourCC == 0x33545844)     // FOURCC_DXT3 - Equivalent to "DXT3" in ASCII
 		blockSize = 16; // DXT3
-	if(ddsd.ddpfPixelFormat.dwFourCC == FOURCC_DXT5)
+	if(ddsd.ddpfPixelFormat.dwFourCC == 0x35545844)     // FOURCC_DXT5 - Equivalent to "DXT5" in ASCII
 		blockSize = 16; // DXT5
 
 	/* if it isn't a format we support, exit */
@@ -471,7 +471,7 @@ ddSurf *ddUtil::loadSurface( const std::string &f,int flags,gxGraphics *gfx ){
 	bool trans=FreeImage_GetBPP( t_dib )==32 ||	FreeImage_IsTransparent( t_dib );
 
 	FIBITMAP *dib=FreeImage_ConvertTo32Bits( t_dib );
-	
+
 	if( dib ) FreeImage_Unload( t_dib );
 	else dib=t_dib;
 

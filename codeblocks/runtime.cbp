@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="runtime" />
+		<Option platforms="Windows;" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option platforms="Windows;" />
+				<Option output="../BLITZ3D_INSTALL/bin/runtime" prefix_auto="1" extension_auto="1" />
+				<Option object_output="temp/obj/Debug/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Og" />
+					<Add option="-fpermissive" />
+					<Add option="-DBUILD_DLL" />
+				</Compiler>
+				<Linker>
+					<LinkerExe value="Linker" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../BLITZ3D_INSTALL/bin/runtime" prefix_auto="1" extension_auto="1" />
+				<Option object_output="temp/obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-Og" />
+					<Add option="-fpermissive" />
+					<Add option="-DBUILD_DLL" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Os" />
+			<Add option="-w" />
+			<Add option="-std=gnu++11" />
+			<Add option="-std=c11" />
+			<Add option="-m32" />
+			<Add option="-Og" />
+			<Add option="-fpermissive" />
+			<Add option="-DBB_BLITZ3D_ENABLED" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+			<Add option="-static" />
+			<Add option="-m32" />
+			<Add library="../blitz3d/minidx9/lib/d3dxof.lib" />
+			<Add library="../blitz3d/minidx9/lib/dinput8.lib" />
+		</Linker>
+		<Unit filename="../bbruntime/basic.cpp" />
+		<Unit filename="../bbruntime/basic.h" />
+		<Unit filename="../bbruntime/bbbank.cpp" />
+		<Unit filename="../bbruntime/bbbank.h" />
+		<Unit filename="../bbruntime/bbblitz3d.cpp" />
+		<Unit filename="../bbruntime/bbblitz3d.h" />
+		<Unit filename="../bbruntime/bbfilesystem.cpp">
+			<Option weight="55" />
+		</Unit>
+		<Unit filename="../bbruntime/bbfilesystem.h" />
+		<Unit filename="../bbruntime/bbgraphics.cpp" />
+		<Unit filename="../bbruntime/bbgraphics.h" />
+		<Unit filename="../bbruntime/bbinput.cpp" />
+		<Unit filename="../bbruntime/bbinput.h" />
+		<Unit filename="../bbruntime/bbmath.cpp" />
+		<Unit filename="../bbruntime/bbmath.h" />
+		<Unit filename="../bbruntime/bbruntime.cpp">
+			<Option weight="20" />
+		</Unit>
+		<Unit filename="../bbruntime/bbruntime.h" />
+		<Unit filename="../bbruntime/bbsgd.h" />
+		<Unit filename="../bbruntime/bbstream.cpp" />
+		<Unit filename="../bbruntime/bbstream.h" />
+		<Unit filename="../bbruntime/bbstring.cpp" />
+		<Unit filename="../bbruntime/bbstring.h" />
+		<Unit filename="../bbruntime/bbsys.cpp" />
+		<Unit filename="../bbruntime/bbsys.h" />
+		<Unit filename="../bbruntime/multiplay_setup.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../bbruntime/resource.h" />
+		<Unit filename="../bbruntime/runtime.cpp" />
+		<Unit filename="../bbruntime/std.cpp" />
+		<Unit filename="../bbruntime/std.h" />
+		<Unit filename="../bbruntime/userlibs.cpp" />
+		<Unit filename="../bbruntime/userlibs.h" />
+		<Unit filename="../bbruntime_dll/bbexe.ico" />
+		<Unit filename="../bbruntime_dll/bbruntime_dll.cpp" />
+		<Unit filename="../bbruntime_dll/bbruntime_dll.h" />
+		<Unit filename="../bbruntime_dll/bbruntime_dll.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="../bbruntime_dll/resource.h" />
+		<Unit filename="../blitz3d/animation.cpp" />
+		<Unit filename="../blitz3d/animation.h">
+			<Option weight="48" />
+		</Unit>
+		<Unit filename="../blitz3d/animator.cpp" />
+		<Unit filename="../blitz3d/animator.h" />
+		<Unit filename="../blitz3d/blitz3d.h" />
+		<Unit filename="../blitz3d/brush.cpp">
+			<Option weight="80" />
+		</Unit>
+		<Unit filename="../blitz3d/brush.h" />
+		<Unit filename="../blitz3d/cachedtexture.cpp">
+			<Option weight="80" />
+		</Unit>
+		<Unit filename="../blitz3d/cachedtexture.h" />
+		<Unit filename="../blitz3d/camera.cpp">
+			<Option weight="80" />
+		</Unit>
+		<Unit filename="../blitz3d/camera.h" />
+		<Unit filename="../blitz3d/collision.cpp" />
+		<Unit filename="../blitz3d/collision.h" />
+		<Unit filename="../blitz3d/entity.cpp" />
+		<Unit filename="../blitz3d/entity.h" />
+		<Unit filename="../blitz3d/entityutil.h" />
+		<Unit filename="../blitz3d/frustum.cpp" />
+		<Unit filename="../blitz3d/frustum.h" />
+		<Unit filename="../blitz3d/geom.cpp" />
+		<Unit filename="../blitz3d/geom.h" />
+		<Unit filename="../blitz3d/group.h" />
+		<Unit filename="../blitz3d/light.cpp" />
+		<Unit filename="../blitz3d/light.h" />
+		<Unit filename="../blitz3d/loader_3ds.cpp" />
+		<Unit filename="../blitz3d/loader_3ds.h" />
+		<Unit filename="../blitz3d/loader_b3d.cpp" />
+		<Unit filename="../blitz3d/loader_b3d.h" />
+		<Unit filename="../blitz3d/md2model.cpp" />
+		<Unit filename="../blitz3d/md2model.h" />
+		<Unit filename="../blitz3d/md2norms.cpp" />
+		<Unit filename="../blitz3d/md2norms.h" />
+		<Unit filename="../blitz3d/md2rep.cpp" />
+		<Unit filename="../blitz3d/md2rep.h" />
+		<Unit filename="../blitz3d/mesh.h" />
+		<Unit filename="../blitz3d/meshcollider.cpp" />
+		<Unit filename="../blitz3d/meshcollider.h" />
+		<Unit filename="../blitz3d/meshloader.cpp" />
+		<Unit filename="../blitz3d/meshloader.h" />
+		<Unit filename="../blitz3d/meshmodel.cpp" />
+		<Unit filename="../blitz3d/meshmodel.h" />
+		<Unit filename="../blitz3d/meshrenderer.h" />
+		<Unit filename="../blitz3d/meshutil.cpp" />
+		<Unit filename="../blitz3d/meshutil.h" />
+		<Unit filename="../blitz3d/minidx9/include/dxfile.h" />
+		<Unit filename="../blitz3d/minidx9/include/rmxfguid.h" />
+		<Unit filename="../blitz3d/minidx9/include/rmxftmpl.h" />
+		<Unit filename="../blitz3d/minidx9/lib/d3dxof.lib" />
+		<Unit filename="../blitz3d/minidx9/lib/dinput8.lib" />
+		<Unit filename="../blitz3d/mirror.cpp" />
+		<Unit filename="../blitz3d/mirror.h" />
+		<Unit filename="../blitz3d/model.cpp">
+			<Option weight="40" />
+		</Unit>
+		<Unit filename="../blitz3d/model.h">
+			<Option weight="40" />
+		</Unit>
+		<Unit filename="../blitz3d/ms3drep.cpp" />
+		<Unit filename="../blitz3d/ms3drep.h" />
+		<Unit filename="../blitz3d/object.cpp" />
+		<Unit filename="../blitz3d/object.h" />
+		<Unit filename="../blitz3d/pivot.cpp" />
+		<Unit filename="../blitz3d/pivot.h" />
+		<Unit filename="../blitz3d/planemodel.cpp" />
+		<Unit filename="../blitz3d/planemodel.h" />
+		<Unit filename="../blitz3d/q3bspmodel.cpp" />
+		<Unit filename="../blitz3d/q3bspmodel.h" />
+		<Unit filename="../blitz3d/q3bsprep.cpp" />
+		<Unit filename="../blitz3d/q3bsprep.h" />
+		<Unit filename="../blitz3d/rendercontext.h" />
+		<Unit filename="../blitz3d/sprite.cpp" />
+		<Unit filename="../blitz3d/sprite.h" />
+		<Unit filename="../blitz3d/std.cpp" />
+		<Unit filename="../blitz3d/std.h">
+			<Option weight="40" />
+		</Unit>
+		<Unit filename="../blitz3d/surface.cpp" />
+		<Unit filename="../blitz3d/surface.h" />
+		<Unit filename="../blitz3d/terrain.cpp" />
+		<Unit filename="../blitz3d/terrain.h" />
+		<Unit filename="../blitz3d/terrainmodel.h" />
+		<Unit filename="../blitz3d/terrainrep.cpp" />
+		<Unit filename="../blitz3d/terrainrep.h" />
+		<Unit filename="../blitz3d/texture.cpp" />
+		<Unit filename="../blitz3d/texture.h" />
+		<Unit filename="../blitz3d/texturecache.h" />
+		<Unit filename="../blitz3d/world.cpp">
+			<Option weight="48" />
+		</Unit>
+		<Unit filename="../blitz3d/world.h">
+			<Option weight="48" />
+		</Unit>
+		<Unit filename="../config/config.cpp" />
+		<Unit filename="../config/config.h" />
+		<Unit filename="../gxruntime/asmcoder.h" />
+		<Unit filename="../gxruntime/ddutil.cpp" />
+		<Unit filename="../gxruntime/ddutil.h" />
+		<Unit filename="../gxruntime/gxaudio.h" />
+		<Unit filename="../gxruntime/gxcanvas.cpp">
+			<Option weight="54" />
+		</Unit>
+		<Unit filename="../gxruntime/gxcanvas.h" />
+		<Unit filename="../gxruntime/gxchannel.cpp" />
+		<Unit filename="../gxruntime/gxchannel.h" />
+		<Unit filename="../gxruntime/gxdevice.cpp" />
+		<Unit filename="../gxruntime/gxdevice.h" />
+		<Unit filename="../gxruntime/gxdir.cpp" />
+		<Unit filename="../gxruntime/gxdir.h" />
+		<Unit filename="../gxruntime/gxfilesys_h.txt" />
+		<Unit filename="../gxruntime/gxfilesystem.cpp" />
+		<Unit filename="../gxruntime/gxfilesystem.h" />
+		<Unit filename="../gxruntime/gxfont.cpp" />
+		<Unit filename="../gxruntime/gxfont.h" />
+		<Unit filename="../gxruntime/gxgraphics.cpp">
+			<Option weight="52" />
+		</Unit>
+		<Unit filename="../gxruntime/gxgraphics.h">
+			<Option weight="54" />
+		</Unit>
+		<Unit filename="../gxruntime/gxinput.cpp">
+			<Option weight="52" />
+		</Unit>
+		<Unit filename="../gxruntime/gxinput.h" />
+		<Unit filename="../gxruntime/gxlight.cpp">
+			<Option weight="52" />
+		</Unit>
+		<Unit filename="../gxruntime/gxlight.h" />
+		<Unit filename="../gxruntime/gxmesh.cpp" />
+		<Unit filename="../gxruntime/gxmesh.h" />
+		<Unit filename="../gxruntime/gxmovie.cpp" />
+		<Unit filename="../gxruntime/gxmovie.h" />
+		<Unit filename="../gxruntime/gxruntime.cpp" />
+		<Unit filename="../gxruntime/gxruntime.h" />
+		<Unit filename="../gxruntime/gxruntime_b3d.cpp" />
+		<Unit filename="../gxruntime/gxruntime_b3d.h" />
+		<Unit filename="../gxruntime/gxscene.cpp" />
+		<Unit filename="../gxruntime/gxscene.h" />
+		<Unit filename="../gxruntime/gxsound.h" />
+		<Unit filename="../gxruntime/gxtimer.cpp" />
+		<Unit filename="../gxruntime/gxtimer.h" />
+		<Unit filename="../gxruntime/std.cpp">
+			<Option weight="48" />
+		</Unit>
+		<Unit filename="../gxruntime/std.h" />
+		<Unit filename="../stdutil/stdutil.cpp" />
+		<Unit filename="../stdutil/stdutil.h" />
+      		<Unit filename="../freeimage/FreeImage.h" />
+		<Unit filename="../freeimage/FreeImageIO.h" />
+		<Unit filename="../freeimage/FreeImage/BitmapAccess.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion16_555.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion16_565.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion24.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion32.cpp" />
+		<Unit filename="../freeimage/FreeImage/Conversion8.cpp" />
+		<Unit filename="../freeimage/FreeImage/FreeImage.cpp" />
+		<Unit filename="../freeimage/FreeImage/FreeImageIO.cpp" />
+		<Unit filename="../freeimage/FreeImage/GetType.cpp" />
+		<Unit filename="../freeimage/FreeImage/LoadFunctions.cpp" />
+		<Unit filename="../freeimage/FreeImage/NNQuantizer.cpp" />
+		<Unit filename="../freeimage/FreeImage/Plugin.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginBMP.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginICO.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginIFF.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginJPEG.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginKOALA.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginMNG.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginPCD.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginPCX.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginPNG.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginPNM.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginPSD.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginRAS.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginTARGA.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginTIFF.cpp" />
+		<Unit filename="../freeimage/FreeImage/PluginWBMP.cpp" />
+		<Unit filename="../freeimage/FreeImage/WuQuantizer.cpp" />
+		<Unit filename="../freeimage/LibJPEG/jcapimin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcapistd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jccoefct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jccolor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcdctmgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jchuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcinit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcmainct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcmarker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcmaster.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcomapi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcparam.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcphuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcprepct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jcsample.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jctrans.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdapimin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdapistd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdatadst.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdatasrc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdcoefct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdcolor.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jddctmgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdhuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdinput.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdmainct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdmarker.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdmaster.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdmerge.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdphuff.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdpostct.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdsample.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jdtrans.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jerror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jfdctflt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jfdctfst.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jfdctint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jidctflt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jidctfst.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jidctint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jidctred.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jmemmgr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jmemnobs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jquant1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jquant2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibJPEG/jutils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/png.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngerror.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pnggccrd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngget.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngmem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngpread.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngread.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngrio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngrtran.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngrutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngtest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngtrans.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngvcrd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngwio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngwrite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngwtran.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/LibPNG/pngwutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/Plugin.h" />
+		<Unit filename="../freeimage/Quantizers.h" />
+		<Unit filename="../freeimage/Utilities.h" />
+		<Unit filename="../freeimage/ZLib/adler32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/crc32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/deflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/gzio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/infblock.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/infcodes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/inffast.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/inflate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/inftrees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/infutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/trees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/uncompr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../freeimage/ZLib/zutil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
