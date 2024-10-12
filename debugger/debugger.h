@@ -14,6 +14,10 @@ public:
 	virtual void debugSys( void *msg )=0;
 };
 
+#ifdef __GNUC__
+extern "C" __declspec(dllexport) Debugger * _cdecl debuggerGetDebugger( void *mod,void *env );
+#elif _MSC_VER
 extern "C" _declspec(dllexport) Debugger * _cdecl debuggerGetDebugger( void *mod,void *env );
+#endif
 
 #endif
