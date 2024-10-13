@@ -58,6 +58,8 @@
 			<Add library="../blitz3d/minidx9/lib/d3dxof.lib" />
 			<Add library="../blitz3d/minidx9/lib/dinput8.lib" />
 			<Add library="Ws2_32" />
+			<Add library="dxguid" />
+			<Add library="ddraw" />
 		</Linker>
 		<Unit filename="../bbruntime/basic.cpp" />
 		<Unit filename="../bbruntime/basic.h" />
@@ -137,6 +139,8 @@
 		<Unit filename="../blitz3d/group.h" />
 		<Unit filename="../blitz3d/light.cpp" />
 		<Unit filename="../blitz3d/light.h" />
+		<Unit filename="../blitz3d/listener.cpp" />
+		<Unit filename="../blitz3d/listener.h" />
 		<Unit filename="../blitz3d/loader_3ds.cpp" />
 		<Unit filename="../blitz3d/loader_3ds.h" />
 		<Unit filename="../blitz3d/loader_b3d.cpp" />
