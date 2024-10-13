@@ -60,6 +60,10 @@
 			<Add library="Ws2_32" />
 			<Add library="dxguid" />
 			<Add library="ddraw" />
+			<Add library="strmiids" />
+			<Add library="winmm" />
+			<Add library="ole32" />
+			<Add library="gdi32" />
 		</Linker>
 		<Unit filename="../bbruntime/basic.cpp" />
 		<Unit filename="../bbruntime/basic.h" />
