@@ -96,9 +96,6 @@
 		<Unit filename="../bbruntime/bbstring.h" />
 		<Unit filename="../bbruntime/bbsys.cpp" />
 		<Unit filename="../bbruntime/bbsys.h" />
-		<Unit filename="../bbruntime/multiplay_setup.rc">
-			<Option compilerVar="WINDRES" />
-		</Unit>
 		<Unit filename="../bbruntime/resource.h" />
 		<Unit filename="../bbruntime/runtime.cpp" />
 		<Unit filename="../bbruntime/std.cpp" />
@@ -169,8 +166,6 @@
 		<Unit filename="../blitz3d/minidx9/include/dxfile.h" />
 		<Unit filename="../blitz3d/minidx9/include/rmxfguid.h" />
 		<Unit filename="../blitz3d/minidx9/include/rmxftmpl.h" />
-		<Unit filename="../blitz3d/minidx9/lib/d3dxof.lib" />
-		<Unit filename="../blitz3d/minidx9/lib/dinput8.lib" />
 		<Unit filename="../blitz3d/mirror.cpp" />
 		<Unit filename="../blitz3d/mirror.h" />
 		<Unit filename="../blitz3d/model.cpp">
@@ -493,7 +488,6 @@
 		<Unit filename="../gxruntime/gxdevice.h" />
 		<Unit filename="../gxruntime/gxdir.cpp" />
 		<Unit filename="../gxruntime/gxdir.h" />
-		<Unit filename="../gxruntime/gxfilesys_h.txt" />
 		<Unit filename="../gxruntime/gxfilesystem.cpp" />
 		<Unit filename="../gxruntime/gxfilesystem.h" />
 		<Unit filename="../gxruntime/gxfont.cpp" />
