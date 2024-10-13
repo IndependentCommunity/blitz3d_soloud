@@ -149,6 +149,7 @@
 		<Unit filename="../blitz3d/loader_3ds.h" />
 		<Unit filename="../blitz3d/loader_b3d.cpp" />
 		<Unit filename="../blitz3d/loader_b3d.h" />
+		<Unit filename="../blitz3d/loader_x.cpp" />
 		<Unit filename="../blitz3d/md2model.cpp" />
 		<Unit filename="../blitz3d/md2model.h" />
 		<Unit filename="../blitz3d/md2norms.cpp" />
