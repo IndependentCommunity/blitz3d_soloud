@@ -18,7 +18,6 @@
 				<Compiler>
 					<Add option="-Og" />
 					<Add option="-fpermissive" />
-					<Add option="-DBUILD_DLL" />
 				</Compiler>
 				<Linker>
 					<LinkerExe value="Linker" />
@@ -34,11 +33,9 @@
 				<Compiler>
 					<Add option="-Og" />
 					<Add option="-fpermissive" />
-					<Add option="-DBUILD_DLL" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="user32" />
 				</Linker>
 			</Target>
 		</Build>
@@ -51,6 +48,8 @@
 			<Add option="-Og" />
 			<Add option="-fpermissive" />
 			<Add option="-DBB_BLITZ3D_ENABLED" />
+			<Add option="-DBUILD_DLL" />
+			<Add option="-D_LIB" />
 		</Compiler>
 		<Linker>
 			<Add option="-s" />
