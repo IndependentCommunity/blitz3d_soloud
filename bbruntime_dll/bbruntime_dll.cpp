@@ -89,7 +89,9 @@ void Runtime::execute( void (*pc)(),const char *args,Debugger *dbg ){
 
 	trackmem( true );
 
+#ifdef _MSC_VER
 	_se_translator_function old_trans=_set_se_translator( seTranslator );
+#endif
 	_control87( _RC_NEAR|_PC_24|_EM_INVALID|_EM_ZERODIVIDE|_EM_OVERFLOW|_EM_UNDERFLOW|_EM_INEXACT|_EM_DENORMAL,0xfffff );
 
 	//strip spaces from ends of args...
@@ -107,7 +109,9 @@ void Runtime::execute( void (*pc)(),const char *args,Debugger *dbg ){
 	}
 
 	_control87( _CW_DEFAULT,0xfffff );
+#ifdef _MSC_VER
 	_set_se_translator( old_trans );
+#endif
 }
 
 void Runtime::asyncStop(){
@@ -236,7 +240,9 @@ static void link(){
 }
 
 extern "C" _declspec(dllexport) int _stdcall bbWinMain();
+#ifdef _MSC_VER
 extern "C" BOOL _stdcall _DllMainCRTStartup( HANDLE,DWORD,LPVOID );
+#endif
 
 bool WINAPI DllMain( HANDLE module,DWORD reason,void *reserved ){
 	return TRUE;
@@ -246,7 +252,9 @@ int __stdcall bbWinMain(){
 
 	HINSTANCE inst=GetModuleHandle( 0 );
 
+#ifdef _MSC_VER
 	_DllMainCRTStartup( inst,DLL_PROCESS_ATTACH,0 );
+#endif
 
 #ifdef BETA
 	int ver=VERSION & 0x7fff;
@@ -283,7 +291,9 @@ int __stdcall bbWinMain(){
 	runtime->execute( (void(*)())module_pc,params.c_str(),0 );
 	runtime->shutdown();
 
+#ifdef _MSC_VER
 	_DllMainCRTStartup( inst,DLL_PROCESS_DETACH,0 );
+#endif
 
 	ExitProcess(0);
 	return 0;
