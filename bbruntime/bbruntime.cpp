@@ -207,7 +207,7 @@ void bbruntime_link(void (*rtSym)(const char* sym, void* pc))
     math_link(rtSym);
     string_link(rtSym);
     stream_link(rtSym);
-    //sockets_link(rtSym);
+    sockets_link(rtSym);
     filesystem_link(rtSym);
     bank_link(rtSym);
 	userlibs_link(rtSym);
@@ -238,8 +238,8 @@ bool bbruntime_create()
             {
                 if (stream_create())
                 {
-                    //if (sockets_create())
-                    //{
+                    if (sockets_create())
+                    {
                         if (filesystem_create())
                         {
                             if (bank_create())
@@ -279,9 +279,9 @@ bool bbruntime_create()
                             filesystem_destroy();
                         }
                         else sue("filesystem_create failed");
-                        //sockets_destroy();
-                    //}
-                    //else sue("sockets_create failed");
+                        sockets_destroy();
+                    }
+                    else sue("sockets_create failed");
                     stream_destroy();
                 }
                 else sue("stream_create failed");
@@ -310,7 +310,7 @@ bool bbruntime_destroy()
 #endif
     bank_destroy();
     filesystem_destroy();
-    //sockets_destroy();
+    sockets_destroy();
     stream_destroy();
     string_destroy();
     math_destroy();

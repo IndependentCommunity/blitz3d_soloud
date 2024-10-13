@@ -48,8 +48,8 @@
 			<Add option="-Og" />
 			<Add option="-fpermissive" />
 			<Add option="-DBB_BLITZ3D_ENABLED" />
-			<Add option="-DBUILD_DLL" />
 			<Add option="-D_LIB" />
+			<Add option="-DBUILD_DLL" />
 		</Compiler>
 		<Linker>
 			<Add option="-s" />
@@ -57,6 +57,7 @@
 			<Add option="-m32" />
 			<Add library="../blitz3d/minidx9/lib/d3dxof.lib" />
 			<Add library="../blitz3d/minidx9/lib/dinput8.lib" />
+			<Add library="Ws2_32" />
 		</Linker>
 		<Unit filename="../bbruntime/basic.cpp" />
 		<Unit filename="../bbruntime/basic.h" />
@@ -79,6 +80,8 @@
 		</Unit>
 		<Unit filename="../bbruntime/bbruntime.h" />
 		<Unit filename="../bbruntime/bbsgd.h" />
+		<Unit filename="../bbruntime/bbsockets.cpp" />
+		<Unit filename="../bbruntime/bbsockets.h" />
 		<Unit filename="../bbruntime/bbstream.cpp" />
 		<Unit filename="../bbruntime/bbstream.h" />
 		<Unit filename="../bbruntime/bbstring.cpp" />
