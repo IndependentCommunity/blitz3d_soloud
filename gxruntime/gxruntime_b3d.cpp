@@ -1212,15 +1212,15 @@ int gxRuntime::callDll( const std::string &dll,const std::string &func,const voi
 
 	static void *save_esp;
 
-	_asm{
-			mov	[save_esp],esp
-	};
+//	_asm{  //!!!
+//			mov	[save_esp],esp
+//	};
 
 	int n=fun_it->second( in,in_sz,out,out_sz );
 
-	_asm{
-			mov esp,[save_esp]
-	};
+//	_asm{  //!!!
+//			mov esp,[save_esp]
+//	};
 
 	return n;
 }
