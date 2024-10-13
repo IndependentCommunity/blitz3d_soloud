@@ -61,6 +61,8 @@
 		</Linker>
 		<Unit filename="../bbruntime/basic.cpp" />
 		<Unit filename="../bbruntime/basic.h" />
+		<Unit filename="../bbruntime/bbaudio_soloud.cpp" />
+		<Unit filename="../bbruntime/bbaudio_soloud.h" />
 		<Unit filename="../bbruntime/bbbank.cpp" />
 		<Unit filename="../bbruntime/bbbank.h" />
 		<Unit filename="../bbruntime/bbblitz3d.cpp" />
@@ -474,13 +476,10 @@
 		<Unit filename="../gxruntime/asmcoder.h" />
 		<Unit filename="../gxruntime/ddutil.cpp" />
 		<Unit filename="../gxruntime/ddutil.h" />
-		<Unit filename="../gxruntime/gxaudio.h" />
 		<Unit filename="../gxruntime/gxcanvas.cpp">
 			<Option weight="54" />
 		</Unit>
 		<Unit filename="../gxruntime/gxcanvas.h" />
-		<Unit filename="../gxruntime/gxchannel.cpp" />
-		<Unit filename="../gxruntime/gxchannel.h" />
 		<Unit filename="../gxruntime/gxdevice.cpp" />
 		<Unit filename="../gxruntime/gxdevice.h" />
 		<Unit filename="../gxruntime/gxdir.cpp" />
@@ -514,7 +513,6 @@
 		<Unit filename="../gxruntime/gxruntime_b3d.h" />
 		<Unit filename="../gxruntime/gxscene.cpp" />
 		<Unit filename="../gxruntime/gxscene.h" />
-		<Unit filename="../gxruntime/gxsound.h" />
 		<Unit filename="../gxruntime/gxtimer.cpp" />
 		<Unit filename="../gxruntime/gxtimer.h" />
 		<Unit filename="../gxruntime/std.cpp">

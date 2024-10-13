@@ -214,7 +214,7 @@ void bbruntime_link(void (*rtSym)(const char* sym, void* pc))
 #if BB_BLITZ3D_ENABLED
 	input_link(rtSym);
 	graphics_link( rtSym );
-    //audio_link(rtSym);
+    audio_link(rtSym);
 	blitz3d_link( rtSym );
 #elif BB_LIBSGD_ENABLED
     sgd_link(rtSym);
@@ -251,16 +251,16 @@ bool bbruntime_create()
 									{
 										if (input_create())
 										{
-											//if (audio_create())
-											//{
+											if (audio_create())
+											{
 												if( blitz3d_create() )
 												{
 													return true;
 
 												}else sue("blitz3d_create failed");
-												//audio_destroy();
-											//}
-											//else sue("audio_create failed");
+												audio_destroy();
+											}
+											else sue("audio_create failed");
 											input_destroy();
 										}
 										else sue("input_create failed");
@@ -302,7 +302,7 @@ bool bbruntime_destroy()
     userlibs_destroy();
 #if BB_BLITZ3D_ENABLED
     blitz3d_destroy();
-    //audio_destroy();
+    audio_destroy();
     input_destroy();
 	graphics_destroy();
 #elif BB_LIBSGD_ENABLED
