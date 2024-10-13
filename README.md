@@ -9,6 +9,6 @@ https://sourceforge.net/projects/codeblocks/files/Binaries/20.03/Windows/32bit/c
 
 3) Unpack archive Unzip the archive to a convenient location, somewhere closer to the root disk folder.
 
-4) Enter to archive codeblocks\ folder and open runtime.cbr project.
+4) Enter to archive codeblocks\ folder and open runtime.cbp project in CodeBlocks IDE.
 
 5) Select Build->Rebuild main menu option or press Ctrl-F11. For compile and get dll.
