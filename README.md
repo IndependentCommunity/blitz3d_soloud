@@ -1,21 +1,14 @@
-## Blitz3D open source release.
+## Blitz3D CodeBlocks GNUGCC MinGW runtune.dll build
 
-### Building Blitz3D from source
+### Building runtune.dll  from source
 
-You will need to install Microsoft Visual Studio, and the CMake and Git utilities. Any recent version of MSVC should be OK, I am currently using Community Edition 2022.
+1) Download and install CodeBlocks with 32-bit MinGW from here:
+https://sourceforge.net/projects/codeblocks/files/Binaries/20.03/Windows/32bit/codeblocks-20.03-32bit-mingw-32bit-setup.exe/download
 
-You will also need to install the following optional MSVC components: "Desktop development with C++", "MFC and ATL support" and "ASP.NET and web development".
+2) Download Reposiotory archive from this brunch. (Press [<> Code] -> Download ZIP)
 
-Then, from a DOS prompt:
+3) Unpack archive Unzip the archive to a convenient location, somewhere closer to the root disk folder.
 
-``` shell
-git clone https://github.com/blitz-research/blitz3d_soloud.git
-cd blitz3d_soloud
-cmake -S . -B cmake-build-release -A Win32 -G "Visual Studio 17 2022"
-cmake --build cmake-build-release --config Release
-```
-Assuming all went well, the BLITZ3D_INSTALL directory will contain the final binaries, simply run Blitz3D.exe to get blitzing!
+4) Enter to archive codeblocks\ folder and open runtime.cbr project.
 
-### Too lazy to build?
-
-Grab the prebuilt version from https://blitzresearch.itch.io/
+5) Select Build->Rebuild main menu option or press Ctrl-F11. For compile and get dll.
