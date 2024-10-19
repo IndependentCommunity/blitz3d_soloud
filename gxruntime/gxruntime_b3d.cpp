@@ -1212,15 +1212,23 @@ int gxRuntime::callDll( const std::string &dll,const std::string &func,const voi
 
 	static void *save_esp;
 
+#ifdef __GNUC__
+	asm volatile ("mov %%esp, %[save_esp]" : [save_esp] "=r" (save_esp));
+#elif _MSC_VER	
 	_asm{
-			mov	[save_esp],esp
+		mov [save_esp],esp
 	};
+#endif	
 
 	int n=fun_it->second( in,in_sz,out,out_sz );
 
+#ifdef __GNUC__
+	asm volatile ("mov %[save_esp], %%esp" : : [save_esp] "r" (save_esp));
+#elif _MSC_VER	
 	_asm{
-			mov esp,[save_esp]
+		mov esp,[save_esp]
 	};
-
+#endif
+	
 	return n;
 }
