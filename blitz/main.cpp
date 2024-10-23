@@ -42,13 +42,14 @@ static void showUsage(){
 static void showHelp(){
 	showUsage();
 	cout<<"-h         : show this help"<<endl;
+	cout<<"-a         : show generated assembler code"<<endl;
 	cout<<"-q         : quiet mode"<<endl;
-	cout<<"+q		  : very quiet mode"<<endl;
+	cout<<"+q         : very quiet mode"<<endl;
 	cout<<"-c         : compile only"<<endl;
 	cout<<"-d         : debug compile"<<endl;
 	cout<<"-k         : dump keywords"<<endl;
 	cout<<"+k         : dump keywords and syntax"<<endl;
-	cout<<"-v		  : version info"<<endl;
+	cout<<"-v         : version info"<<endl;
 	cout<<"-o exefile : generate executable"<<endl;
 }
 
